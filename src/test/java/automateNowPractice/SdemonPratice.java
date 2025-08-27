@@ -1,8 +1,15 @@
 package automateNowPractice;
 
+import java.io.File;
+import java.io.IOException;
+
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.io.FileHandler;
 import org.testng.Assert;
 
 public class SdemonPratice {
@@ -29,6 +36,10 @@ public class SdemonPratice {
 			}catch(Throwable e)
 			{
 				System.out.println("Login failed try in 5 seconds"+"For"+(i+1)+"Times");
+				TakesScreenshot ts = (TakesScreenshot)driver;
+				File src = ts.getScreenshotAs(OutputType.FILE);
+				File dest = new File("screenshot_"+i+".png");
+				FileUtils.copyFile(src, dest);
 				Thread.sleep(5000);
 			}
 		}
@@ -44,5 +55,6 @@ public class SdemonPratice {
 		
 		driver.quit();
 	}
+
 
 }
