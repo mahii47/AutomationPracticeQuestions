@@ -29,9 +29,7 @@ public class PracticeJavaQuestions {
 		
 		System.out.println("Vowles:"+ Vcount);
 		System.out.println("Consonants:"+ Ccount);
-		
-		
-
+		//New branch code is updated
 	}
 
 }
